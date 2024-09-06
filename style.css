@@ -1,0 +1,276 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Rubik', sans-serif;
+}
+
+:root {
+    --Blue: hsl(246, 80%, 60%);
+    --Light-orange: hsl(15, 100%, 70%);
+    --Soft-blue: hsl(195, 74%, 62%);
+    --Light-red: hsl(348, 100%, 68%);
+    --Lime-green: hsl(145, 58%, 55%);
+    --Violet: hsl(264, 64%, 52%);
+    --Soft-orange: hsl(43, 84%, 65%);
+    --Very-dark-blue: hsl(226, 43%, 10%);
+    --Dark-blue: hsl(235, 46%, 20%);
+    --Desaturated-blue: hsl(235, 45%, 61%);
+    --Pale-Blue: hsl(236, 100%, 87%);
+}
+
+body {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--Very-dark-blue);
+    padding: 8.1rem 2.4rem;
+}
+
+.activity-tracker {
+    width: 100%;
+    height: auto;
+    display: grid;
+    grid-auto-rows: max-content;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    gap: 2.4rem;
+}
+
+.menu {
+    background-color: var(--Dark-blue);
+    width: 100%;
+    border-radius: 24px;
+    overflow: hidden;
+}
+
+.owner {
+    width: 100%;
+    padding: 3.1rem 2.9rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 2rem;
+    background-color: var(--Blue);
+    border-radius: 0 0 24px 24px;
+}
+
+.owner-img {
+    width: 6.4rem;
+    border: 0.3rem solid white;
+    border-radius: 50%;
+}
+
+.owner-container {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 0.4rem;
+}
+
+.owner-for {
+    font-size: 1.5rem;
+    color: var(--Pale-Blue);
+}
+
+.owner-name {
+    font-size: clamp(2.4rem, 1.8366rem + 1.5023vw, 4rem);
+    font-weight: 300;
+    color: white;
+}
+
+.options {
+    padding: 2.4rem 2rem 2.5rem 3.3rem;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.activity-option {
+    width: max-content;
+    font-size: 1.8rem;
+    color: var(--Desaturated-blue);
+    transition: color 250ms;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    background-color: transparent;
+}
+
+.activity-option:hover,
+.activity-option.active {
+    color: white;
+}
+
+.activity {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 3.8rem 1fr;
+    grid-template-columns: 1fr;
+    overflow: hidden;
+    border-radius: 24px;
+}
+
+.activity:is(.work) {
+    background-color: var(--Light-orange);
+}
+
+.activity:is(.play) {
+    background-color: var(--Soft-blue);
+}
+
+.activity:is(.study) {
+    background-color: var(--Light-red);
+}
+
+.activity:is(.exercise) {
+    background-color: var(--Lime-green);
+}
+
+.activity:is(.social) {
+    background-color: var(--Violet);
+}
+
+.activity:is(.self-care) {
+    background-color: var(--Soft-orange);
+}
+
+.activity-bg {
+    grid-row: 1/3;
+    grid-column: 1/2;
+    display: grid;
+    place-items: start end;
+    height: 70%;
+}
+
+.icon {
+    transform: translate(-2rem, -1rem);
+    position: relative;
+    z-index: 1;
+}
+
+.activity-info {
+    position: relative;
+    z-index: 5;
+    grid-row: 2/3;
+    grid-column: 1/2;
+    background-color: var(--Dark-blue);
+    transition: background 250ms, transform 250ms;
+    height: 100%;
+    padding: 2.8rem 2.4rem;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 0.6rem;
+    cursor: pointer;
+    border-radius: 24px;
+}
+
+.activity:hover > .activity-info {
+    background: hsl(235, 46%, 30%);
+}
+
+.activity-header,
+.activity-timeframe {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.activity-name {
+    color: white;
+    font-weight: 500;
+}
+
+.ellipsis {
+    transition: white 250ms;
+}
+
+.ellipsis:hover {
+    fill: white;
+}
+
+.current-timeframe {
+    font-size: clamp(3.2rem, 2.3549rem + 2.2535vw, 5.6rem);
+    font-weight: 300;
+    color: white;
+    line-height: 6.6rem;
+}
+
+.previous-timeframe {
+    display: flex;
+    font-size: 1.5rem;
+    color: var(--Pale-Blue);
+}
+
+
+
+
+@media screen and (min-width: 500px) {
+    .activity-tracker {
+        grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+        grid-template-rows: 1fr 1fr;
+        min-height: 51.8rem;
+        gap: 3rem;
+    }
+
+    .menu {
+        grid-row: 1/3;
+        display: flex;
+        flex-flow: column nowrap;
+    }
+
+    .owner {
+        padding: 3.4rem 2.9rem 8rem 2.9rem;
+        flex-flow: column nowrap;
+        align-items: start;
+        gap: 4.3rem;
+        flex: 1 0 auto;
+    }
+
+    .owner-img {
+        width: 7.8rem;
+    }
+
+    .owner-container {
+        gap: 0.3rem;
+        max-width: 60%;
+    }
+
+    .owner-name {
+        line-height: 4rem;
+    }
+
+    .options {
+        flex-flow: column nowrap;
+        gap: 2.1rem;
+        padding: 2.6rem 3.2rem 3.2rem;
+    }
+
+    .activity {
+        grid-template-rows: 4.5rem 1fr;
+    }
+
+    .activity-info {
+        gap: 2.4rem;
+        padding: 2.9rem 3rem 3.2rem;
+    }
+
+    .activity-timeframe {
+        flex-flow: column nowrap;
+        align-items: start;
+        gap: 0.8rem;
+    }
+}
+
+@media screen and (min-width: 1500px) {
+    .activity-tracker {
+        max-width: 1700px;
+    }
+}
